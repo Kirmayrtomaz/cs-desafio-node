@@ -14,7 +14,9 @@ cache:
             - npm prune
         install:
             - npm install
+            - npm install -g codecov
         script:
           - npm test
         after_script:
           - npm run coverage
+          codecov

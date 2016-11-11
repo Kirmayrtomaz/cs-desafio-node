@@ -2,6 +2,8 @@
 
 # cs-desafio-node
 
+[![Build Status](https://api.travis-ci.org/Kirmayrtomaz/cs-desafio-node.svg?branch=master)](https://travis-ci.org/Kirmayrtomaz/cs-desafio-node)
+
 [![codecov](https://codecov.io/gh/Kirmayrtomaz/cs-desafio-node/branch/master/graph/badge.svg)](https://codecov.io/gh/Kirmayrtomaz/cs-desafio-node)
 
 
