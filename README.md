@@ -1,4 +1,11 @@
+
+
 # cs-desafio-node
+
+[![codecov](https://codecov.io/gh/Kirmayrtomaz/cs-desafio-node/branch/master/graph/badge.svg)](https://codecov.io/gh/Kirmayrtomaz/cs-desafio-node)
+
+
+
 Desafio Concrete Solutions  REST API NODE
 
 # Desafio node.js Concrete Solutions

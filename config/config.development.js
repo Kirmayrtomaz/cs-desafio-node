@@ -8,7 +8,7 @@ export default {
     extend: true,
   },
   mongodb: {
-    uri: 'mongodb://localhost:27017/users',
+    uri: 'mongodb://localhost:27017/user',
   },
   consign: {
     verbose: false,

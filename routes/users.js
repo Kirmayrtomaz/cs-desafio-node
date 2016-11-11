@@ -1,6 +1,8 @@
+
+
 module.exports = (app) => {
+  const UserController = app.controllers.user;
   app.post('/signin/', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
     res.json(
       {
         request: 'signin',
@@ -9,16 +11,11 @@ module.exports = (app) => {
 
 
   app.post('/signup/', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.json(
-      {
-        request: 'signup',
-      });
+    UserController.create();
   });
 
 
   app.get('/user/', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
     res.json({
       request: 'search',
     });
