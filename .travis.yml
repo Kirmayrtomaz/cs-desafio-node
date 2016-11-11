@@ -1,8 +1,8 @@
 language: node_js
 node_js:
     - "4.6"
-        - "6.9"
-            - "7.0"
+    - "6.9"
+    - "7.0"
 services:
     - mongodb
 cache:
@@ -12,5 +12,9 @@ cache:
         depth: 3
         before_script:
             - npm prune
+        install:
+            - npm install
+        script:
+          - npm test
         after_script:
           - npm run coverage
