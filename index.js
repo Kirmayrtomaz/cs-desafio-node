@@ -9,8 +9,10 @@ require('babel-core/register');
 require('babel-polyfill');
 
 const app = express();
+const mongo_uri = process.env.MONGOLAB_URI || config.mongodb.uri;
+const port = process.env.PORT || config.server.port;
 
-mongoose.connect(config.mongodb.uri);
+mongoose.connect(mongo_uri);
 
 app.use(bodyParser.urlencoded(config.bodyParser));
 app.use(bodyParser.json());
@@ -22,8 +24,8 @@ consign(config)
   .then('helpers')
   .then('routes')
   .into(app);
-console.log(config.server.port);
-app.listen(config.server.port, () => {
+console.log(port);
+app.listen(port, () => {
   console.log('API REST EXECUTANDO');
 });
 
