@@ -9,7 +9,7 @@ require('babel-core/register');
 require('babel-polyfill');
 
 const app = express();
-const mongo_uri = process.env.MONGOLAB_URI || config.mongodb.uri;
+const mongo_uri = process.env.MONGODB_URI || config.mongodb.uri;
 const port = process.env.PORT || config.server.port;
 
 mongoose.connect(mongo_uri);
