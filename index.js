@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import config from './config';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 
 require('babel-core/register');
@@ -14,6 +15,7 @@ const port = process.env.PORT || config.server.port;
 
 mongoose.connect(mongo_uri);
 
+app.use(cors());
 app.use(bodyParser.urlencoded(config.bodyParser));
 app.use(bodyParser.json());
 
@@ -24,7 +26,8 @@ consign(config)
   .then('helpers')
   .then('routes')
   .into(app);
-console.log(port);
+
+
 app.listen(port, () => {
   console.log('API REST EXECUTANDO');
 });
