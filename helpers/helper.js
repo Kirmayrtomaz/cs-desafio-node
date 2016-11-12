@@ -1,19 +1,8 @@
-import expressJoi from 'express-joi';
-
-
-const Joi = expressJoi.Joi;
 
 module.exports = (app) => {
-  const UserValidate = {
-
-    nome: Joi.types.string().min(2).max(200).required(),
-    email: Joi.types.string().email().required(),
-    senha: Joi.Types.string().required(),
-    telefone: Joi.types.array(),
-  };
-  
+    
   const guid = () => {
-       s4 = ()=> {
+       let s4 = ()=> {
             return Math.floor((1 + Math.random()) * 0x10000)
               .toString(16)
               .substring(1);
@@ -39,11 +28,32 @@ module.exports = (app) => {
     INTERNAL_SERVER_ERROR: 500
   
   }
+  
+  /**
+   * Function GetToken
+   * Param {Token} Extract token into the head
+   *  exemple 'Bearer token'
+   *      
+   *  result 'token'
+   *
+   * */
 
+  const getToken =(token) =>{
+    
+    let auth = '';
+
+    if(typeof token !== 'undefined' && typeof token == 'string'  && token.indexOf('Bearer') != -1 )
+    {
+      auth = token.replace('Bearer ',''); 
+    }
+  
+    return auth;
+  }
+ 
   return {
 
-    UserValidate,
     guid,
-    http_status 
+    http_status,
+    getToken
   };
 };

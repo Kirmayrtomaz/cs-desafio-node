@@ -51,7 +51,6 @@ describe('Validando Controller: User',()=>{
     expect(salvo).not.be.undefined;
     expect(salvo).to.be.an('object');
     
-    console.log(salvo.nome)
     expect(salvo.nome).to.be.equal('kirma')
     expect(salvo.email).to.be.equal('tomaz.kirmayr@gmail.com')
     expect(salvo.id).to.be.equal('123456')

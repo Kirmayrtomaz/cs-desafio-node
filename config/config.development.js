@@ -13,5 +13,10 @@ export default {
   consign: {
     verbose: false,
   },
-
+  jwt: {
+    secret: "concrete-solution-token",
+    config: {
+      expiresIn: 30 * 60  
+    }
+  }
 };

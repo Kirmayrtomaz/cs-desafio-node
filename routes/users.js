@@ -1,8 +1,10 @@
-
+import expressJoi from 'express-joi';
+const Joi = expressJoi.Joi;
 
 module.exports = (app) => {
   const UserController = app.controllers.user;
-  
+  const Helpers = app.helpers.helper;
+
   /**
     * @api {post} /signin/  Realização de Login do usuário
     *
@@ -99,7 +101,9 @@ module.exports = (app) => {
     * */
 
   app.post('/signup/', (req, res) => {
-    UserController.create();
+    
+    UserController.create(req,res);
+  
   });
 
 

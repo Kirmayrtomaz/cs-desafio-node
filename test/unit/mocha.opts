@@ -2,3 +2,5 @@
 --reporter nyan
 --compilers js:babel-register
 --slow 3000
+--timeout 5000
+--sort

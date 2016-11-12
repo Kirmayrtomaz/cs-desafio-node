@@ -25,7 +25,22 @@ module.exports = (app) => {
     
 */
   
+  
+  app.get('/', (req, res, next) => {
+
+    
+    //console.log(req.headers['authorization'].replace('Bearer ',""))
+    if(false == false){
+      next();
+    }else{
+     res.json({'api':'Deu merda'});
+     
+    
+    }
+  });
+
+  
   app.get('/', (req, res) => {
-    res.json({ api: 'works' });
+    res.json({ api: 'Desafio Concrete Solutions API REST NODE' });
   });
 };

@@ -22,7 +22,7 @@ module.exports = () => {
       type: String,
       required: true,
     },
-    telefone: [],
+    telefones: [],
     data_criacao: {
       type: Date,
       default: Date.now,
@@ -34,6 +34,12 @@ module.exports = () => {
     token: {
       type: String,
     },
+    ultimo_login:{
+      type:Date,
+      default: Date.now
+    }
+
+
 
   });
 

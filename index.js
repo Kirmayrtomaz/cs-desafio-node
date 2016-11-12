@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import config from './config';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import expressValidator from 'express-validator';
+
 
 
 require('babel-core/register');
@@ -19,6 +21,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded(config.bodyParser));
 app.use(bodyParser.json());
 
+app.use(expressValidator())
 
 consign(config)
   .include('models')
