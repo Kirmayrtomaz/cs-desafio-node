@@ -86,7 +86,10 @@
     "description": "Construção da api para o desafio node",
     "apidoc": {
       "title": "Construct Solutions desafio node",
-      "url": "kirmayrtomaz.github.io/cs-desafio-node"
-    }
+      "url": "https://kirmayrtomaz.github.io/cs-desafio-node/"
+    },
+      "gh-pages-deploy": {
+            "staticpath": "doc",
+             "cname": "https://kirmayrtomaz.github.io/cs-desafio-node"
   }
 }
