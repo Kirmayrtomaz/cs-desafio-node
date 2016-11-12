@@ -87,9 +87,6 @@
     "apidoc": {
       "title": "Construct Solutions desafio node",
       "url": "https://kirmayrtomaz.github.io/cs-desafio-node/"
-    },
-      "gh-pages-deploy": {
-            "staticpath": "doc",
-             "cname": "https://kirmayrtomaz.github.io/cs-desafio-node"
+    }
   }
 }
