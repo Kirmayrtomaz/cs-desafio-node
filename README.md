@@ -2,11 +2,7 @@
 
 # cs-desafio-node
 
-[![Build Status](https://api.travis-ci.org/Kirmayrtomaz/cs-desafio-node.svg?branch=master)](https://travis-ci.org/Kirmayrtomaz/cs-desafio-node)
-
-[![codecov](https://codecov.io/gh/Kirmayrtomaz/cs-desafio-node/branch/master/graph/badge.svg)](https://codecov.io/gh/Kirmayrtomaz/cs-desafio-node)
-
-
+[![Build Status](https://api.travis-ci.org/Kirmayrtomaz/cs-desafio-node.svg?branch=master)](https://travis-ci.org/Kirmayrtomaz/cs-desafio-node) [![coverage](https://codecov.io/gh/Kirmayrtomaz/cs-desafio-node/branch/master/graph/badge.svg)](https://codecov.io/gh/Kirmayrtomaz/cs-desafio-node) [![License](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Dependences](https://david-dm.org/kirmayrtomaz/cs-desafio-node.svg)](https://david-dm.org/kirmayrtomaz/cs-desafio-node) [![Dev Dependences](https://david-dm.org/kirmayrtomaz/cs-desafio-node/dev-status.svg)](https://david-dm.org/kirmayrtomaz/cs-desafio-node/dev-status)
 
 Desafio Concrete Solutions  REST API NODE
 
