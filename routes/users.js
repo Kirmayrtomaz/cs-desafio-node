@@ -4,12 +4,12 @@ module.exports = (app) => {
   const UserController = app.controllers.user;
   
   /**
-    * @api {post} /signin/ login na API 
+    * @api {post} /signin/  Realização de Login do usuário
     *
     * @apiGroup user
     * @apiParam {String} Email Email do usuário
     * @apiParam {String} senha senha do usuário
-    *
+    * @apiVersion 1.0.0
     * @apiSuccess (Login realizado com sucesso - 200) {String} id id do usuario
     * @apiSuccess (Login realizado com sucesso - 200) {String} data_criacao data de criacao do usuário
     * @apiSuccess (Login realizado com sucesso - 200) {String} data_atualizacao data da última atualização do usuário
@@ -51,9 +51,10 @@ module.exports = (app) => {
 
 
   /**
-    * @api {post} /signup/ Register user to API 
+    * @api {post} /signup/ Realização de cadastro do usuário 
     *
-    * @apiGroup user
+    * @apiGroup user    
+    * @apiVersion 1.0.0
     * @apiParam {String} Nome Nome do usuário
     * @apiParam {String} Email Email do usuário
     * @apiParam {String} senha senha do usuário
@@ -103,10 +104,10 @@ module.exports = (app) => {
 
 
   /**
-    * @api {get} /user/ Buscar usuário na API 
+    * @api {get} /user/ Realização da Busca do usuário na API autenticado
     *
     * @apiGroup user
-    * 
+    * @apiVersion 1.0.0
     * @apiHeader {String} Bearer{token} Token de autorização de acesso
     *
     *

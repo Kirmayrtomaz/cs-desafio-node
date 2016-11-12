@@ -7,10 +7,11 @@ module.exports = (app) => {
 
 
 /**
-  @api {get} / Vefificar status da API 
+  @api {get} / Verificar status da API 
+  @apiVersion 1.0.0
   @apiDescription Acesso inicial para verificar se a API está funcionando perfeitamente
   @apiPermission none
-  
+  @apiGroup index 
   @apiSuccess {String} app Informações do API
   @apiSuccessExample {json} Success-Response:
       HTTP/1.1 200 OK
