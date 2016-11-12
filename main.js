@@ -1,17 +1,17 @@
 require.config({
     paths: {
-        bootstrap: './vendor/bootstrap.min',
-        diffMatchPatch: './vendor/diff_match_patch.min',
-        handlebars: './vendor/handlebars.min',
+        bootstrap: './lib/bootstrap.min',
+        diffMatchPatch: './lib/diff_match_patch.min',
+        handlebars: './lib/handlebars.min',
         handlebarsExtended: './utils/handlebars_helper',
-        jquery: './vendor/jquery.min',
+        jquery: './lib/jquery.min',
         locales: './locales/locale',
-        lodash: './vendor/lodash.min',
-        pathToRegexp: './vendor/path-to-regexp/index',
-        prettify: './vendor/prettify/prettify',
-        semver: './vendor/semver.min',
+        lodash: './lib/lodash.min',
+        pathToRegexp: './lib/path-to-regexp/index',
+        prettify: './lib/prettify/prettify',
+        semver: './lib/semver.min',
         utilsSampleRequest: './utils/send_sample_request',
-        webfontloader: './vendor/webfontloader'
+        webfontloader: './lib/webfontloader'
     },
     shim: {
         bootstrap: {
