@@ -12,3 +12,37 @@ Desafio Concrete Solutions  REST API NODE
 Crie um aplicativo backend que exporá uma API RESTful de criação de sing up/sign in.
 
 
+## Instalação do projeto 
+
+```
+npm install
+
+```
+
+
+## Execução do projeto 
+
+```
+npm start
+
+```
+
+## Sobre desenvolvimento
+
+
+* Para utilização de Task Runner, optei pelo NPM SCRIPTS
+
+
+* O projeto functiona com  [TRAVIS ](https://travis-ci.org/Kirmayrtomaz/cs-desafio-node) para que fazer os testes de integração e para fazer o Deploy automáticamente no [HEROKU ](https://cs-desafio-node-kirma.herokuapp.com/) caso esteja tudo ok
+
+* o banco de dados que estou utilizando é o MongoDB
+
+* Crei também uma documentação  [Documentação da API](http://kirmayrtomaz.github.io/cs-desafio-node/) está no Github pages
+
+* O projeto também possui testes unitários e testes de integração porém não consegui terminar a cobertura dele a tempo
+
+
+
+
+
+
