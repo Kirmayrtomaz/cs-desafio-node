@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import md5 from 'blueimp-md5';
 module.exports  =(app) =>{
-
+'use strict'
 
   async function create (req, res) {
   
@@ -22,9 +22,8 @@ module.exports  =(app) =>{
       res.json({
           mensage:"Insira corretamente os campos obrigatórios"
       });
-
+        return 
     }
-
     /**
       * verifica se o usuario existe
       * */
@@ -36,6 +35,8 @@ module.exports  =(app) =>{
       res.json({
           mensage:"E-mail já existente"
       });
+
+      return 
     }
     
 
@@ -60,9 +61,175 @@ module.exports  =(app) =>{
     res.status(http.CREATED);
     res.json(userCreated);
 
-
+    return 
   }
   
+  async function login (req,res) {
+  
+   let http = app.helpers.helper.http_status;
+   let auth = app.controllers.auth;
+  
+    req.checkBody("email", "Insira um email válido").isEmail();
+   req.checkBody("senha", "Insira um email válido").notEmpty();
+  
+    let errors = req.validationErrors();
+    if(errors){
+      res.status(http.UNAUTHORIZED);
+      res.json({
+          mensage:"Usuário e/ou senha inválidos"
+      });
+        return 
+    }
+    
+
+   let  user = await this.find(req.body.email,req.body.senha);
+    if(user.length < 1 ){
+       res.status(400);
+       res.json({
+          mensage:"Usuário e/ou senha inválidos"
+      });
+        return 
+    }
+  
+    user = user[0];
+    
+    let userToUpdate = {
+      token: auth.createToken(user.id),
+      ultimo_login: Date()
+    }
+    let userUpdate = await this.updateUserById(user._id,userToUpdate)
+  
+    let userUp = 
+      {
+        id: userUpdate.id,
+        data_criacao: userUpdate.data_criacao,
+        data_atualizacao: userUpdate.data_atualizacao, 
+        ultimo_login: userUpdate.ultimo_login,
+        token: userUpdate.token 
+      }
+  
+    res.status(http.OK);
+    res.json(userUp);
+
+
+  }
+
+
+  const find = (login,senha) =>{
+  
+  let UserModel =  app.models.user;
+      return UserModel
+          .find({
+            'email':login,
+            'senha':md5(senha)
+          })
+          .exec()
+          .then((user)=>{
+          let exist = false;
+        
+          //usuário existe?
+          if(user && user.length > 0 ){
+        
+            exist = true;
+      
+          }
+          return user;
+    
+    
+     },(error)=>{
+    
+     });
+
+  
+  }
+
+  
+   
+  async function search (req, res) {
+ 
+    let http = app.helpers.helper.http_status;
+   let auth = app.controllers.auth;
+  let Helper = app.helpers.helper;
+   let tk  =  Helper.getToken(req.headers['authorization'])
+    
+  let data = auth.verifyToken(tk);
+    
+    if(data === 'error1'){
+    
+      res.status(http.ANAUTHORIZED);
+      res.json({mensagem:'Sessão Inválida'})
+      
+      return 
+
+    }
+
+    
+    if(data === 'error2' ){
+      res.status(http.UNAUTHORIZED);
+      res.json({mensagem:'Não Autorizado Inválida'})
+     
+   return 
+    }
+    let UserWantSearch = await searchUser(data);
+    
+    if(UserWantSearch && UserWantSearch[0].token !== tk ){
+      res.status(http.ANAUTHORIZED);
+      res.json({mensagem:'Sessão Inválida'})
+      
+      return 
+    
+    }
+
+
+    let id = req.params.id;
+   console.log(id) 
+    let search = await searchUser(id)
+    console.log(search)
+
+     res.status(http.OK);
+
+    if(search.length == 0){
+      res.json({})
+  
+  }
+
+
+    let user = search[0]
+  
+    res.json(user)
+
+  
+  }
+
+
+ const searchUser = (id)=>{
+  
+  let UserModel =  app.models.user;
+      return UserModel
+        .find({id:id})
+        .exec()
+        .then((user)=> {
+            
+          return user;
+        },(erro)=> {
+        })
+
+}
+  
+  const updateUserById = (id,user)=>{
+  
+  let UserModel =  app.models.user;
+      return UserModel
+        .findByIdAndUpdate(id,user)
+        .exec()
+        .then((user)=> {
+            
+          return user;
+        },(erro)=> {
+        })
+
+}
+
   const findUser = (user)=>{
    
     let UserModel =  app.models.user;
@@ -100,6 +267,11 @@ module.exports  =(app) =>{
   return {
     create,
     save,
-    findUser
+    findUser,
+    login,
+    find,
+    updateUserById,
+    search,
+    searchUser
   }
 };

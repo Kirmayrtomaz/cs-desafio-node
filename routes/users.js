@@ -44,10 +44,9 @@ module.exports = (app) => {
  
   
   app.post('/signin/', (req, res) => {
-    res.json(
-      {
-        request: 'signin',
-      });
+    
+    UserController.login(req,res);
+ 
   });
   
 
@@ -163,8 +162,8 @@ module.exports = (app) => {
     *
     * */
   app.get('/user/:id', (req, res) => {
-    res.json({
-      request: 'search',
-    });
+
+    UserController.search(req,res);
+ 
   });
 };

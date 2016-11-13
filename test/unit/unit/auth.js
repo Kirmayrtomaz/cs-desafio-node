@@ -39,7 +39,7 @@ it('VerifyToken: Verificar Token inválido', ()=> {
     let auth = Auth.verifyToken('TokenInválido');
     console.log(auth)
     expect(auth).not.be.undefined;
-    expect(auth).to.be.equal('Não Autorizado');
+    expect(auth).to.be.equal('error2');
     
   })
 

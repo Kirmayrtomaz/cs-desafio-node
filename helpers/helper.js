@@ -41,12 +41,11 @@ module.exports = (app) => {
   const getToken =(token) =>{
     
     let auth = '';
-
+  
     if(typeof token !== 'undefined' && typeof token == 'string'  && token.indexOf('Bearer') != -1 )
     {
       auth = token.replace('Bearer ',''); 
     }
-  
     return auth;
   }
  

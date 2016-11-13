@@ -5,14 +5,8 @@ module.exports  =(app) =>{
   const createToken = (user_id) =>{
     let token = false;
     
-    if( process.env.NODE_ENV ){
-      
-      config.jwt.config =  {
-        expiresIn: 2  
-     }
 
     
-    }
 
     if(typeof user_id !== 'undefined' && typeof user_id === 'string' ){
 
@@ -25,13 +19,12 @@ module.exports  =(app) =>{
   }
   
   const verifyToken = (token)=>{
-  let result = '';  
+    let result = '';  
   try{
    let verify =  jwt.verify(token, config.jwt.secret)
   result = verify.data; 
   }catch(error){
-    
-    result = (error.name !==  'JsonWebTokenError')? 'Sessão inválida' : 'Não Autorizado'; 
+    result = (error.name !==  'JsonWebTokenError')? 'error1' : 'error2'; 
 
 
   }

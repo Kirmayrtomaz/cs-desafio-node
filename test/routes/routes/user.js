@@ -26,8 +26,7 @@ describe('GET /', () => {
             throw err;
           }
           expect(res.body.api).to.be.equal("Desafio Concrete Solutions API REST NODE")
-          
-         setTimeout(()=>{done()},2000)
+      done()        
   });
 })
 
