@@ -43,6 +43,31 @@ npm start
 
 
 
+## Rotas
+
+Cadastrar no sistema
+```
+POST https://cs-desafio-node-kirma.herokuapp.com/signup/
+```
+
+Login  no sistema
+```
+POST https://cs-desafio-node-kirma.herokuapp.com/signin/
+```
+
+
+Buscar usuario
+
+```
+HEADER Authorization Berear {token}
+
+GET https://cs-desafio-node-kirma.herokuapp.com/user/:id/
+```
+
+
+
+
+
 
 
 
