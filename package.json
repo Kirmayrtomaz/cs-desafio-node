@@ -12,7 +12,9 @@
     "codecov": "node_modules/.bin/codedov",
     "lint": "eslint '**/*.js'",
     "lint:fix": "eslint '**/*.js'",
-    "doc": "node_modules/.bin/apidoc -i routes/  -o doc"
+    "doc": "node_modules/.bin/apidoc -i routes/  -o doc",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -42,7 +44,8 @@
     "express-validator": "^2.21.0",
     "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.6",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "apidoc": "^0.16.1",
@@ -89,5 +92,6 @@
       "title": "Construct Solutions desafio node",
       "url": "https://kirmayrtomaz.github.io/cs-desafio-node/"
     }
-  }
+  },
+  "snyk": true
 }
